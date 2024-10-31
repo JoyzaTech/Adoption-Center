@@ -1,0 +1,1 @@
+// User schema (with bcrypt hashing)
