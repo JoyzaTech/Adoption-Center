@@ -54,7 +54,7 @@ body {
 }
 
 /* Main container styles */
-.main-container {
+main {
     max-width: 100%;
     margin: 0 auto;
     padding: 1rem;
@@ -268,7 +268,7 @@ body {
         text-decoration: none;
     }
 
-    .main-container {
+    main {
         max-width: 1200px;
         padding: 2rem;
     }

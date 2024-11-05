@@ -1,1 +1,41 @@
-// Pet details view
+<img src="https://picsum.photos/seed/puppy/300" alt="Pet Image" alt="Dog Photo">
+<!-- Pet Details -->
+<div class="pet-details">
+    <h2><%= pet.name %></h2>
+    <p>ID: <%= pet.id %></p>
+    <h3>My Story</h3>
+    <p><%= pet.story %></p>
+</div>
+
+<!-- Info Sections -->
+<div class="adoption-info">
+    <div class="info-box">
+        <h4>Age</h4>
+        <p><%= pet.age %></p>
+    </div>
+    <div class="info-box">
+        <h4>Weight</h4>
+        <p><%= pet.weight %></p>
+    </div>
+    <div class="info-box">
+        <h4>Size</h4>
+        <p><%= pet.size %></p>
+    </div>
+    <div class="info-box full-width">
+        <h4>Breed</h4>
+        <p><%= pet.breed %></p>
+    </div>
+    <div class="info-box full-width">
+        <h4>Location</h4>
+        <p><%= pet.location %></p>
+    </div>
+    <div class="info-box full-width">
+        <h4>My Friends Say:</h4>
+        <p><%= pet.behavior %></p>
+    </div>
+    <div class="info-box full-width">
+        <h4>What I Need:</h4>
+        <p><%= pet.needs %></p>
+    </div>
+</div>
+</div>
