@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adaptive Adoption - Register</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
+    <!-- Collapsed Sidepanel -->
+    <div class="overlay"></div>
+    <div class="side-menu">
+        <button class="close-menu">×</button>
+        <div class="side-menu-links">
+            <a href="#">Home</a>
+            <a href="#">Adopt an Animal</a>
+            <a href="#">About</a>
+            <a href="#">Contact Us</a>
+            <a href="#" class="login-button-nav">Login</a>
+        </div>
+    </div>
     <header class="header">
+        <!-- Temp Text Logo -->
         <div class="logo">
-            <!-- Temp Text Logo -->
             <img src="https://picsum.photos/seed/logo/40/40" alt="Adaptive Adoption Logo" />
             <span class="logo-text">
                 <span class="logo-blue">Adaptive</span>
@@ -54,5 +67,6 @@
             </form>
         </div>
     </main>
+    <script src="../js/hamburger.js"></script>
 </body>
 </html>
