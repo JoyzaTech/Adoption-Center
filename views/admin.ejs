@@ -1,1 +1,28 @@
-// Admin Dashboard
+<div class="admin-container">
+    <h1 class="dashboard-title">Admin Dashboard</h1>
+    <h2 class="section-title">Manage Events</h2>
+
+    <div class="events-table">
+        <div class="table-header">
+            <div class="header-cell name-cell">Name</div>
+            <div class="header-cell org-cell">Org./Person</div>
+            <div class="header-cell action-cell"></div>
+        </div>
+        
+        <% events.forEach(function(event) { %>
+            <div class="table-row">
+                <div class="table-cell name-cell"><%= event.name %></div>
+                <div class="table-cell org-cell"><%= event.organization %></div>
+                <div class="table-cell action-cell">
+                    <button class="delete-btn" aria-label="Delete">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 6h18"></path>
+                            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>

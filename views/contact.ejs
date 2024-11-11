@@ -1,1 +1,28 @@
-// Contact form
+<div class="contact-container">
+    <div class="contact-image">
+        <img src="/public/images/dog-banner.jpg" alt="Close-up of a dog showing teeth" class="contact-banner">
+    </div>
+    <div class="contact-content">
+        <h1>Contact Us!</h1>
+        <p>Questions? Comments? Concerns? Submit your message here and we will get back to you as soon as we can!</p>
+        
+        <form class="contact-form" action="/contact" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</div>

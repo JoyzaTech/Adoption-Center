@@ -1,0 +1,85 @@
+.admin-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Events Table */
+.events-table {
+    background: var(--white);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 40px;
+    background-color: var(--table-header);
+    color: var(--white);
+    padding: 0.75rem;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 40px;
+    padding: 0.75rem;
+    background-color: var(--table-row);
+    border-bottom: 1px solid #D1D5DB;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.header-cell {
+    font-weight: 500;
+}
+
+.table-cell {
+    display: flex;
+    align-items: center;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--delete-red);
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: opacity 0.2s;
+}
+
+.delete-btn:hover {
+    opacity: 0.8;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .dashboard-title,
+    .section-title {
+        text-align: left;
+    }
+
+    .events-table {
+        margin: 2rem auto;
+        max-width: 800px;
+    }
+}
