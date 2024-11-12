@@ -1,0 +1,49 @@
+<div class="surrender-container">
+    <div class="surrender-banner">
+        <img src="/public/images/dog-banner.jpg" alt="Banner" class="banner-image">
+    </div>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Surrender a Pet</h1>
+            <p>We're so sorry to hear you have to surrender a pet. We're here to make the process as easy as possible. Fill out this form and help us know what we can do to put your pet up for adoption!</p>
+        </div>
+
+        <form class="surrender-form" action="/surrender-pet" method="POST">
+            <div class="form-group">
+                <label for="petName">Pet Name</label>
+                <input type="text" id="petName" name="petName" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="male" name="gender" value="male" required>
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="unknown" name="gender" value="unknown">
+                        <label for="unknown">Unknown</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="breed">Breed</label>
+                <input type="text" id="breed" name="breed" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" id="age" name="age" required class="form-input">
+            </div>
+
+            <button type="submit" class="submit-button">Surrender Pet</button>
+        </form>
+    </div>
+</div>

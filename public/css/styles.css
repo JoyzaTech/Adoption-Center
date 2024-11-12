@@ -1,0 +1,18 @@
+:root {
+    --primary-blue: #3B82F6;
+    --primary-yellow: #F59E0B;
+    --text-dark: #111827;
+    --text-gray: #4B5563;
+    --background-light: #F9FAFB;
+    --white: #FFFFFF;
+    --table-header: #333333;
+    --table-row: #E5E5E5;
+    --delete-red: #EF4444;
+}
+
+/* Integrate pages with existing layout */
+main {
+    min-height: calc(100vh - 60px); /* Adjust later with final header height */
+    background-color: var(--background-light);
+    padding-top: 1rem;
+}

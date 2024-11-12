@@ -1,1 +1,35 @@
-// Browsing all pets
+<div class="container">
+    <!-- Search Section -->
+    <div class="search-section">
+        <div class="search-container">
+            <div class="filter-dropdown">
+                <button class="filter-btn">Filter By: ▼</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Pets Section -->
+    <h2 class="section-title">Featured Pets</h2>
+    <div class="pets-grid">
+        <% pets.forEach(function(pet) { %>
+            <div class="pet-card">
+                <img src="/images/pet-placeholder.jpg" alt="Photo of <%= pet.name %>" class="pet-image">
+                <div class="pet-info">
+                    <h3 class="pet-name"><%= pet.name %></h3>
+                    <div class="pet-details">
+                        <%= pet.age %> • <%= pet.gender %>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>

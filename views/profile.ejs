@@ -1,0 +1,53 @@
+<div class="profile-container">
+    <div class="profile-banner">
+        <img src="/public/images/dog-banner.jpg" alt="Profile banner" class="banner-image">
+    </div>
+    
+    <div class="profile-content">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <% if (profile.type === 'organization') { %>
+                    <img src="/public/images/org-avatar.png" alt="Organization avatar" class="avatar-image">
+                <% } else { %>
+                    <img src="/public/images/user-avatar.png" alt="User avatar" class="avatar-image">
+                <% } %>
+            </div>
+            
+            <div class="profile-info">
+                <h2 class="profile-name"><%= profile.name %></h2>
+                <p class="profile-type">
+                    <%= profile.type === 'organization' ? 'Organization' : 'Personal' %>
+                </p>
+            </div>
+        </div>
+
+        <div class="profile-bio">
+            <h3>Bio</h3>
+            <p><%= profile.bio || No bio created yet.%></p>
+        </div>
+
+        <div class="pets-section">
+            <h3>Pets up for adoption</h3>
+            
+            <% if (pets && pets.length > 0) { %>
+                <div class="pets-grid">
+                    <% pets.forEach(pet => { %>
+                        <div class="pet-card">
+                            <img src="<%= pet.image %>" alt="<%= pet.name %>" class="pet-image">
+                            <div class="pet-info">
+                                <h4><%= pet.name %></h4>
+                                <p><%= pet.age %> • <%= pet.gender %></p>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <div class="no-pets">
+                    <p>No current pets up for adoption.</p>
+                    <p>Would you like to add one?</p>
+                    <a href="/surrender-pet" class="surrender-button">Surrender a Pet</a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
