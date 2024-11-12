@@ -78,23 +78,6 @@ main {
     margin: 0 auto;
 }
 
-/* Social buttons - Login page only */
-.social-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.social-button {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #f8f8f8;
-    cursor: pointer;
-    text-align: center;
-}
-
 /* Form elements */
 .input-group {
     margin-bottom: 1rem;

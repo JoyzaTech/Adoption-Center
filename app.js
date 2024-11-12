@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cloudinary = require("cloudinary").v2;
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 
@@ -18,13 +19,19 @@ mongoose.connect(process.env.MONGO_URI, {})
   .catch(err => console.log("Failed to Connect:", err));
 
 // Middleware
+app.use(expressLayouts);
+app.set("view engine", "ejs");
+app.set("layout", "layouts/main");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use('/public', express.static('public'));
 
 // Route for login page
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/html/login.html");
+  res.render('auth/login', {
+    pageTitle: 'Login',
+    customStylesheet: './public/css/login.css'
+  })
 });
 
 // Optional 404 Handler
