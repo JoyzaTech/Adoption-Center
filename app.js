@@ -139,7 +139,7 @@ app.post("/login", async (req, res) => {
     req.session.userId = user._id;
     req.session.username = user.username;
     
-    return res.redirect("/dashboard");
+    return res.redirect("/home");
 
   } catch (error) {
     console.error("Login error:", error);
@@ -163,9 +163,7 @@ app.get("/register", (req, res) => {
   });
 });
 
-// Improved registration route
-// Improved registration route
-// Registration route with detailed logging
+// Registration route
 app.post("/register", async (req, res) => {
   console.log('\n=== Registration Attempt ===');
   console.log('Raw request body:', req.body);
@@ -414,22 +412,23 @@ app.get("/logout", (req, res) => {
   });
 });
 
-// Protected dashboard route
-app.get("/dashboard", (req, res) => {
+// Protected home route
+app.get("/home", (req, res) => {
   if (!req.session.userId) {
     return res.redirect("/");
   }
-  res.render("dashboard", { 
-    pageTitle: "Dashboard",
-    username: req.session.username 
+  res.render("home", { 
+    pageTitle: "Home",
+    username: req.session.username,
+    customStylesheet: "/public/css/home.css"
   });
 });
 
 // 404 Handler
 app.use((req, res) => {
   res.status(404).render("404", { 
-    pageTitle: "Page Not Found",
-    customStylesheet: "./public/css/error.css" 
+      pageTitle: "Page Not Found",
+      customStylesheet: "/public/css/error.css" 
   });
 });
 
@@ -437,11 +436,11 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
   console.error("Server error:", err);
   res.status(500).render("error", { 
-    pageTitle: "Error",
-    customStylesheet: "./public/css/error.css",
-    error: process.env.NODE_ENV === 'production' 
-      ? "Something went wrong!" 
-      : err.message
+      pageTitle: "Error",
+      customStylesheet: "/public/css/error.css",
+      error: process.env.NODE_ENV === 'production' 
+          ? "Something went wrong!" 
+          : err.message
   });
 });
 
