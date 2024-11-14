@@ -70,7 +70,7 @@ app.use(
 // Route for login page (GET request)
 app.get("/", (req, res) => {
   if (req.session.userId) {
-    return res.redirect("/dashboard");
+    return res.redirect("/home");
   }
   res.render("auth/login", {
     pageTitle: "Login",
@@ -322,7 +322,7 @@ app.post("/login", async (req, res) => {
   // Rate limiting check
   if (loginAttempts.get(ip) >= 5) {
     console.log('❌ Login failed: Too many attempts from IP:', ip);
-    return res.render("auth/login", {
+    return res.render("views/auth/login", {
       pageTitle: "Login",
       customStylesheet: "./public/css/login.css",
       error: "Too many login attempts. Please try again later.",
@@ -413,7 +413,7 @@ app.get("/logout", (req, res) => {
 });
 
 // Protected home route
-app.get("/home", (req, res) => {
+app.get("/home" || "/dashboard", (req, res) => {
   if (!req.session.userId) {
     return res.redirect("/");
   }
@@ -421,6 +421,40 @@ app.get("/home", (req, res) => {
     pageTitle: "Home",
     username: req.session.username,
     customStylesheet: "./public/css/home.css"
+  });
+});
+
+app.get("/contact", (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect("/");
+  }
+  res.render("contact", { 
+    pageTitle: "Contact Us",
+    username: req.session.username,
+    customStylesheet: "./public/css/contact.css"
+  });
+});
+
+app.get("/pets/surrender", (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect("/");
+  }
+  res.render("pets/surrender", { 
+    pageTitle: "Browse Pets",
+    username: req.session.username,
+    customStylesheet: "./public/css/surrender.css"
+  });
+});
+
+app.get("/pets/browse", (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect("/");
+  }
+  res.render("pets/browse", {
+    pets: pets,
+    pageTitle: "Browse Pets",
+    username: req.session.username,
+    customStylesheet: "./public/css/browse.css"
   });
 });
 
