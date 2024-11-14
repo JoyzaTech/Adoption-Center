@@ -420,7 +420,7 @@ app.get("/home", (req, res) => {
   res.render("home", { 
     pageTitle: "Home",
     username: req.session.username,
-    customStylesheet: "/public/css/home.css"
+    customStylesheet: "./public/css/home.css"
   });
 });
 

@@ -102,7 +102,7 @@ DELETE /admin/pets/:id   - Delete pet listing
 ## 📁 Project Structure
 
 ```
-pet-adoption-platform/
+Adoption-Center/
 ├── config/
 │   └── db.js
 ├── controllers/
