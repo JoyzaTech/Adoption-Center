@@ -42,27 +42,13 @@ body {
 }
 
 .logo {
-    height: 40px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
 .logo img {
-    height: 100%;
-}
-
-.logo-text {
-    color: #333;
-    font-size: 1.5rem;
-}
-
-.logo-blue {
-    color: var(--primary-blue);
-}
-
-.logo-orange {
-    color: var(--primary-yellow);
+    height: 80px;
 }
 
 .nav-menu {

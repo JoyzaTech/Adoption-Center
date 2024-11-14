@@ -11,8 +11,8 @@
 
         <form class="surrender-form" action="/surrender-pet" method="POST">
             <div class="form-group">
-                <label for="petName">Pet Name</label>
-                <input type="text" id="petName" name="petName" required class="form-input">
+                <label for="name">Pet Name</label>
+                <input type="text" id="name" name="name" required class="form-input">
             </div>
 
             <div class="form-group">
@@ -40,7 +40,32 @@
 
             <div class="form-group">
                 <label for="age">Age</label>
-                <input type="text" id="age" name="age" required class="form-input">
+                <input type="number" id="age" name="age" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Pet Description</label>
+                <textarea id="description" name="description" required class="form-input" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="behavior">Pet Behavior</label>
+                <textarea id="behavior" name="behavior" required class="form-input" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="history">Pet History</label>
+                <textarea id="history" name="history" required class="form-input" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">Pet Image URL</label>
+                <input type="url" id="imageUrl" name="imageUrl" required class="form-input">
             </div>
 
             <button type="submit" class="submit-button">Surrender Pet</button>
