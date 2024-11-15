@@ -8,9 +8,16 @@ const expressLayouts = require("express-ejs-layouts");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const User = require("./models/User");
+const faker = require('@faker-js/faker');
 
 const app = express();
 
+const pets = [
+  { name: "Buddy", age: "2 years", gender: "Male", image: "https://placecats.com/millie_neo/300/200" },
+  { name: "Mittens", age: "3 years", gender: "Female", image: "https://placecats.com/neo_banana/300/200" },
+  { name: "Charlie", age: "1 year", gender: "Male", image: "https://placecats.com/neo_2/300/200" },
+  { name: "Luna", age: "4 years", gender: "Female", image: "https://placecats.com/bella/300/200" },
+];
 // Validate essential environment variables
 if (!process.env.MONGO_URI) {
   console.error("ERROR: MONGO_URI is not defined in environment variables!");
@@ -50,7 +57,7 @@ app.set("layout", "layouts/main");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/public", express.static("public"));
-
+app.use(express.static('public'));
 // Session configuration with better security
 const ONE_DAY = 1000 * 60 * 60 * 24;
 app.use(
@@ -412,6 +419,8 @@ app.get("/logout", (req, res) => {
   });
 });
 
+app.use(express.static('public'));
+
 // Protected home route
 app.get("/home" || "/dashboard", (req, res) => {
   if (!req.session.userId) {
@@ -435,17 +444,17 @@ app.get("/contact", (req, res) => {
   });
 });
 
+// Ensure you have this middleware set up to serve static files
+
+
+// Route for surrender page
 app.get("/pets/surrender", (req, res) => {
-  if (!req.session.userId) {
-    return res.redirect("/");
-  }
   res.render("pets/surrender", { 
-    pageTitle: "Browse Pets",
-    username: req.session.username,
-    customStylesheet: "./public/css/surrender.css"
+    pageTitle: "Surrender a Pet",
+    username: req.session?.username || "Guest", // Provide a fallback for username
+    customStylesheet: "/css/test.css" // Use an absolute path for the stylesheet
   });
 });
-
 app.get("/pets/browse", (req, res) => {
   if (!req.session.userId) {
     return res.redirect("/");
@@ -454,17 +463,17 @@ app.get("/pets/browse", (req, res) => {
     pets: pets,
     pageTitle: "Browse Pets",
     username: req.session.username,
-    customStylesheet: "./public/css/browse.css"
+    customStylesheet: "/css/browse.css"
   });
 });
 
 // 404 Handler
-app.use((req, res) => {
-  res.status(404).render("404", { 
-      pageTitle: "Page Not Found",
-      customStylesheet: "/public/css/error.css" 
-  });
-});
+// app.use((req, res) => {
+//   res.status(404).render("404", { 
+//       pageTitle: "Page Not Found",
+//       customStylesheet: "/public/css/error.css" 
+//   });
+// });
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {

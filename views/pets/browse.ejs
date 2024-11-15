@@ -17,12 +17,10 @@
         </div>
     </div>
 
-    <!-- Featured Pets Section -->
-    <h2 class="section-title">Featured Pets</h2>
     <div class="pets-grid">
         <% pets.forEach(function(pet) { %>
             <div class="pet-card">
-                <img src="/images/pet-placeholder.jpg" alt="Photo of <%= pet.name %>" class="pet-image">
+                <img src="<%= pet.image %>" alt="Photo of <%= pet.name %>" class="pet-image">
                 <div class="pet-info">
                     <h3 class="pet-name"><%= pet.name %></h3>
                     <div class="pet-details">
@@ -32,4 +30,3 @@
             </div>
         <% }); %>
     </div>
-</div>

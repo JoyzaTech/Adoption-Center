@@ -1,7 +1,7 @@
 .hero-section {
     position: relative;
     height: 400px;
-    background-image: url('/public/images/hero-banner.jpg');
+    background-image: url('https://hsotc.org/wp-content/uploads/2024/09/image-asset.jpeg');
     background-size: cover;
     background-position: center;
     display: flex;
